@@ -71,36 +71,6 @@ Leaderboard:
    [ {"player3":3}, {"player2":2}, {"player1": 1}, {"player4" :0}],
 }
 
-
-# Luan: Leaderboard should use simple data type, as follow:
-players = [’player1’, ’player2’, ’player3’, ’player4’]
-
-score_board = [  # playing history
-    [3, 2, 1, 0], # player1
-    [1, 2, 3, 3], # player2
-    [1, 3, 3, 1], # player3
-    [3, 1, 2, 2], # player4
-]
-
-# Then getting current score as below
-# In this case, we need the order, so a list is a good choice
-
-def get_current_scores():
-    ’’’
-    Return a list of scores with the highest on top
-    Ie.. [{’player1’: 6}, {’player2’: 3},... ]
-    ’’’
-    scores_dict = {} # a dict of {3: ’player2’, 6: ’player1’,... }
-    for i in range(len(players)):
-        scores_dict[sum(score_board[i])] = players[i]
-
-    return dict(
-        [(scores_dict[i], i) for i in reversed(sorted(scores_dict.keys()))]
-    )
-
-
-
-
 API:
 
 get - /board/join 
